@@ -5,7 +5,6 @@
 ## Status
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-creative/master/LICENSE)
-
 [![Build Status](https://travis-ci.org/sanik90/creative-for-ad.svg?branch=master)](https://travis-ci.org/sanik90/creative-for-ad)
 
 ## Copyright and License
