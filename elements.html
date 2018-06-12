@@ -34,7 +34,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">ad@sanik.my</a>
+        <a class="navbar-brand js-scroll-trigger" href="index.html">ad@sanik.my</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -76,23 +76,49 @@
 
     <section id="form">
       <div class="container my-auto">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Form</h2>
-            <hr class="my-4">
+        <form>
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading">Form</h2>
+              <hr class="my-4">
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12 mx-auto">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary">Search</button>
-                <button class="btn btn-danger">Clear</button>
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary">Search</button>
+                  <button class="btn btn-danger">Clear</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <textarea class="form-control" placeholder="Text Area"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 mx-auto mb-3">
+              <input type="file" id="image" class="form-control" style="visibility: hidden; position: absolute;">
+              <div class="input-group">
+                <input type="text" id="imageUpload" class="form-control" disabled>
+                <div class="input-group-append">
+                  <button id="btn-browse" class="btn btn-primary"><i class="fa fa-search"></i> Browse</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 mx-auto">
+              <div class="btn-group btn-block">
+                  <button type="reset" class="btn btn-danger btn-block">Reset</button>
+                  <button type="button" class="btn btn-primary btn-block">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -161,7 +187,7 @@
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Page</h2>
+            <h2 class="section-heading">Column</h2>
             <hr class="my-4">
           </div>
         </div>
@@ -203,6 +229,21 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
 
-  </body>
+    <script language="javascript">
+      // browse button act as browse for input type file
+      $(document).on('click', '#btn-browse', function ()
+      {
+        var file = $(this).parent().parent().parent().find('#image');
+        file.trigger('click');
+        //$('#imageUpload1').file().trigger('click');
+      });
 
+      // input text file display browsed file name
+      $(document).on('change', '#image', function()
+      {
+        $(this).parent().find('#imageUpload').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+      });
+    </script>
+
+  </body>
 </html>
